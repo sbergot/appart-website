@@ -1,0 +1,16 @@
+{
+  "name": "appart-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sbergot/appart-website",
+  "author": "Simon Bergot <simon.bergot@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-pug": "^4.0.1",
+    "pug": "^2.0.3"
+  },
+  "scripts": {
+    "build" : "gulp"
+  }
+}
