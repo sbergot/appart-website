@@ -28,4 +28,13 @@ gulp.task('images', function copyImages() {
   .pipe(gulp.dest('dist'));
 });
 
+
+gulp.task('thumbnails', function copyImages() {
+  return gulp.src('images/*')
+  .pipe(gm(function (gmFile) {
+    return gmFile.resize(300, 300).autoOrient();
+  }))
+  .pipe(gulp.dest('dist/thumbnails'));
+});
+
 gulp.task('default', ['html', 'css']);

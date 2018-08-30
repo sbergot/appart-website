@@ -15,6 +15,7 @@
   "scripts": {
     "build": "gulp",
     "images": "gulp images",
+    "thumbnails": "gulp thumbnails",
     "clean": "gulp clean"
   }
 }
