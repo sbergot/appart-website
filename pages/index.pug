@@ -1,34 +1,25 @@
-doctype html
-html(lang='en')
-  head
-    // https://rueil-malmaison-92500.site-pap.fr/accueil.html
-    meta(charset='utf-8')
-    title Accueil
-    link(rel='stylesheet', href='style.css')
-  body
-    header
-      a(href='#') Accueil
-      a(href='#') L'appartement
-      a(href='#') L'immeuble
-      a(href='#') En savoir plus
-    main
-      h1 Appartement T2 à louer - Puteaux (92800)
-      h2 Présentation générale
-      span#price Loyer: 1400 €
-      article
-        p
-          | Situé au 2ème étage dans un immeuble de standing au sein d'un quartier calme,
-          | l'appartement est un 2 pièces de 50 m² avec une vue dégagée
-          | sur les tours de la défense.
-        ul
-          li
-            | Cave et garage (box individuel fermé) compris dans la location
-          li
-            | Accès digicode + interphone ou vigic
-          li
-            | Gardien présent dans l'immeuble
-          li
-            | Proche commerces et transports en commun -
-            | métro 1 (esplanade de la défense) & T2 (puteaux)
-          li
-            | A proximité de la défense
+extends _layout.pug
+
+block page-title
+  | Accueil
+
+block content-title
+  | Présentation générale
+
+block content
+  p
+    | Situé au 2ème étage dans un immeuble de standing au sein d'un quartier calme,
+    | l'appartement est un 2 pièces de 50 m² avec une vue dégagée
+    | sur les tours de la défense.
+  ul
+    li
+      | Cave et garage (box individuel fermé) compris dans la location
+    li
+      | Accès digicode + interphone ou vigic
+    li
+      | Gardien présent dans l'immeuble
+    li
+      | Proche commerces et transports en commun -
+      | métro 1 (esplanade de la défense) & T2 (puteaux)
+    li
+      | A proximité de la défense
