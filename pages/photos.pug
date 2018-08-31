@@ -1,0 +1,22 @@
+extends _layout.pug
+
+block page-title
+  | Photos
+
+block content-title
+  | Photos
+
+block scripts
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.js")
+  link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.css')
+  script.
+    window.onload = function() {
+      var viewer = new Viewer(document.getElementById('viewer'));
+    }
+
+
+block content
+  #viewer
+    img(src="thumbnails/chambre.jpg")
+    img(src="thumbnails/salon.jpg")
+    img(src="thumbnails/vue.jpg")

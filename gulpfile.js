@@ -38,3 +38,8 @@ gulp.task('thumbnails', function copyImages() {
 });
 
 gulp.task('default', ['html', 'css']);
+
+gulp.task('watch', ['html', 'css'], function watch() {
+  gulp.watch('./*.css', ['css']);
+  gulp.watch(['pages/*.pug', '!pages/_*.pug'], ['html']);
+});
