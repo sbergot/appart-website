@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var pug = require('gulp-pug');
 var del = require('del');
 var gm = require('gulp-gm'); 
+var using = require('gulp-using');
 
 gulp.task('html', function buildHTML() {
   return gulp.src(['pages/*.pug', '!pages/_*.pug'])
@@ -20,22 +21,19 @@ gulp.task('clean', function clean() {
   return del('dist');
 });
 
-gulp.task('images', function copyImages() {
-  return gulp.src('images/*')
-  .pipe(gm(function (gmFile) {
-    return gmFile.resize(800).autoOrient();
-  }))
-  .pipe(gulp.dest('dist'));
-});
+function copyImages(size, folder) {
+  return () => gulp.src('images/*')
+    .pipe(using({prefix: `Resizing file to ${size}`, filesize: true}))
+    .pipe(gm(function (gmFile) {
+      return gmFile.resize(size, size).autoOrient();
+    }))
+    .pipe(gulp.dest(`dist/${folder}`));
+}
 
-
-gulp.task('thumbnails', function copyImages() {
-  return gulp.src('images/*')
-  .pipe(gm(function (gmFile) {
-    return gmFile.resize(300, 300).autoOrient();
-  }))
-  .pipe(gulp.dest('dist/thumbnails'));
-});
+gulp.task('images:big', copyImages(800, 'photos'));
+gulp.task('images:medium', copyImages(300, 'photos-medium'));
+gulp.task('images:thumbnails', copyImages(100, 'thumbnails'));
+gulp.task('images', ['images:big', 'images:medium', 'images:thumbnails']);
 
 gulp.task('default', ['html', 'css']);
 
