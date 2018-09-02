@@ -7,7 +7,15 @@ var using = require('gulp-using');
 gulp.task('html', function buildHTML() {
   return gulp.src(['pages/*.pug', '!pages/_*.pug'])
   .pipe(pug({
-    // Your options in here.
+    data: {
+      images: [
+        'Salon',
+        'Salon2',
+        'Vue',
+        'Cuisine',
+        'Cuisine2'
+      ]
+    }
   }))
   .pipe(gulp.dest('dist'));
 });

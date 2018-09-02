@@ -11,12 +11,14 @@ block scripts
   link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.css')
   script.
     window.onload = function() {
-      var viewer = new Viewer(document.getElementById('viewer'));
+      var viewer = new Viewer(document.getElementById('viewer'), {url: 'data-original'});
     }
 
 
 block content
   #viewer
-    img(src="thumbnails/chambre.jpg")
-    img(src="thumbnails/salon.jpg")
-    img(src="thumbnails/vue.jpg")
+    each name in images
+      img(src='thumbnails/' + name + '.jpg' data-original='photos/' + name + '.jpg')
+    //- img(src="thumbnails/chambre.jpg")
+    //- img(src="thumbnails/salon.jpg")
+    //- img(src="thumbnails/vue.jpg")
