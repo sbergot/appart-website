@@ -6,20 +6,7 @@ var using = require('gulp-using');
 
 gulp.task('html', function buildHTML() {
   return gulp.src(['pages/*.pug', '!pages/_*.pug'])
-  .pipe(pug({
-    data: {
-      images: [
-        'Salon',
-        'Salon2',
-        'Vue',
-        'Cuisine',
-        'Cuisine2',
-        "Entree",
-        "Entree2",
-        "Toilettes"
-      ]
-    }
-  }))
+  .pipe(pug())
   .pipe(gulp.dest('dist'));
 });
 

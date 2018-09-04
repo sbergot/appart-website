@@ -8,5 +8,6 @@ block content-title
 
 block content
   #viewer.viewer-compact
+    - var images = ['plan', 'salon', 'salon2', 'vue', 'cuisine', 'cuisine2', "entree", "entree2", "toilettes", 'jardin', 'rue' ]
     each name in images
       +image(name)
