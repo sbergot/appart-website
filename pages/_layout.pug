@@ -1,16 +1,39 @@
+mixin image(name)
+  img(src='thumbnails/' + name + '.jpg' data-original='photos/' + name + '.jpg' alt=name)
+
+mixin image-large(name)
+  img(src='photos-medium/' + name + '.jpg' data-original='photos/' + name + '.jpg' alt=name)
+
 doctype html
 html(lang='en')
   head
     // https://rueil-malmaison-92500.site-pap.fr/accueil.html
     meta(charset='utf-8')
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
     title
       block page-title
     link(rel='stylesheet', href='style.css')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.js")
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.css')
+    script.
+      window.onload = function() {
+        var viewer = new Viewer(
+          document.getElementById('viewer'),
+          {
+            url: 'data-original',
+            title: [1, (image, imageData) => `${image.alt}`],
+            navbar: 3,
+            toolbar : {
+              prev: 1,
+              next: 1,
+            }
+          });
+      }
     block scripts
   body
     header
       a(href='./index.html') Accueil
-      a(href='./Photos.html') Photos
+      a(href='./photos.html') Photos
     main
       h1 Appartement T2 à louer - Puteaux (92800)
       h2
