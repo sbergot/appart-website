@@ -23,19 +23,17 @@ html(lang='en')
             url: 'data-original',
             title: [1, (image, imageData) => `${image.alt}`],
             navbar: 3,
-            toolbar : {
-              prev: 1,
-              next: 1,
-            }
+            toolbar : { prev: 1, next: 1 }
           });
       }
     block scripts
   body
     header
       a(href='./index.html') Accueil
+      a(href='./appartement.html') Appartement
       a(href='./photos.html') Photos
     main
-      h1 Appartement T2 à louer - Puteaux (92800)
+      h1 Appartement T2 meublé à louer - Puteaux (92800)
       h2
         block content-title
       span#price Loyer: 1400 €
