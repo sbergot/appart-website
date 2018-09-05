@@ -1,16 +1,13 @@
 extends _layout.pug
 
-block page-title
-  | Accueil
-
-block content-title
-  | Présentation générale
+block variables
+  - var title = "Présentation"
 
 block content
-  p
-    | Situé au 2ème étage dans un immeuble de standing au sein d'un quartier calme,
-    | l'appartement est un 2 pièces de 50 m² avec une vue dégagée
-    | sur les tours de la défense.
+  p.
+    Situé au 2ème étage dans un immeuble de standing au sein d'un quartier calme,
+    l'appartement est un 2 pièces de 50 m² avec une vue dégagée
+    sur les tours de la défense.
   ul
     li
       | Cave et garage (box individuel fermé) compris dans la location

@@ -4,14 +4,17 @@ mixin image(name)
 mixin image-large(name)
   img(src='photos-medium/' + name + '.jpg' data-original='photos/' + name + '.jpg' alt=name)
 
+mixin navlink(file, name)
+  a(href='./' + file + '.html' class= name === title ? 'current' : '')= name
+
 doctype html
 html(lang='en')
   head
+    block variables
     // https://rueil-malmaison-92500.site-pap.fr/accueil.html
     meta(charset='utf-8')
     meta(name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
-    title
-      block page-title
+    title= title
     link(rel='stylesheet', href='style.css')
     script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.js")
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.css')
@@ -26,16 +29,14 @@ html(lang='en')
             toolbar : { prev: 1, next: 1 }
           });
       }
-    block scripts
   body
     header
-      a(href='./index.html') Accueil
-      a(href='./appartement.html') Appartement
-      a(href='./photos.html') Photos
+      +navlink('index', 'Présentation')
+      +navlink('appartement', 'Appartement')
+      +navlink('photos', 'Photos')
     main
       h1 Appartement T2 meublé à louer - Puteaux (92800)
-      h2
-        block content-title
+      h2= title
       span#price Loyer: 1400 €
       article
         block content

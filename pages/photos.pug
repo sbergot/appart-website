@@ -1,13 +1,19 @@
 extends _layout.pug
 
-block page-title
-  | Photos
-
-block content-title
-  | Photos
+block variables
+  - var title = "Photos"
 
 block content
   #viewer.viewer-compact
-    - var images = ['plan', 'salon', 'salon2', 'vue', 'cuisine', 'cuisine2', "entree", "entree2", "toilettes", 'jardin', 'rue' ]
-    each name in images
-      +image(name)
+    +image('plan')
+    +image('salon')
+    +image('salon2')
+    +image('vue')
+    +image('cuisine')
+    +image('cuisine2')
+    +image("entree")
+    +image("entree2")
+    +image("eau")
+    +image("toilettes")
+    +image('jardin')
+    +image('rue')

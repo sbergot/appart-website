@@ -1,13 +1,33 @@
 extends _layout.pug
 
-block page-title
-  | Appartement
-
-block content-title
-  | Appartement
+block variables
+  - var title = "Appartement"
 
 block content
-  p
-    | Situé au 2ème étage dans un immeuble de standing au sein d'un quartier calme,
-    | l'appartement est un 2 pièces de 50 m² avec une vue dégagée
-    | sur les tours de la défense.
+  #viewer.rooms
+
+    h3 Le salon
+    p.
+      Le salon est une belle pièce rectangulaire avec un canapé, une table
+      basse, une télévision, une table et des étagères. Deux radiateurs
+      électriques modernes assurent le confort thermique de la pièce.
+    +image-large("salon")
+   
+    h3 La cuisine
+    p.
+      La cuisine contient un four équipé de plaques vitrocéramiques, un lave linge,
+      un frigo, un micro ondes et de nombreux rangements. La vaisselle et les
+      ustensiles sont fournis.
+    +image-large("cuisine")
+   
+    h3 La salle de bain
+    p.
+      La salle de bain contient un lavabo et une baignoire/douche. Un rangement avec
+      miroir se trouve au dessus du lavabo.
+    +image-large("eau")
+   
+    h3 La chambre
+    p.
+      La chambre contient un lit (140x200). Des étagères intégrées sont fermées
+      par des portes miroirs coulissantes.
+    +image-large("chambre")

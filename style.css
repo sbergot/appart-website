@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    max-width: 950px;
+    width: 950px;
     margin: 0em auto;
     background-color: rgb(240, 240, 240);
     color: #444444;
@@ -32,6 +32,12 @@ header > a:hover {
     padding: 13px 10px 10px 10px;
     color: rgb(70, 70, 150);
     border-bottom: 3px solid rgb(70, 70, 150);
+}
+
+header > a.current {
+    padding: 13px 10px 10px 10px;
+    color: rgb(70, 70, 70);
+    border-bottom: 3px solid rgb(70, 70, 70);
 }
 
 main {
@@ -74,4 +80,18 @@ h2 {
     height: 100px;
     margin: 3px;
     overflow: hidden;
+}
+
+.rooms {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.rooms h3 {
+    width: 100%;
+}
+
+.rooms p {
+    width: 380px;
 }
