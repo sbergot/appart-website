@@ -1,0 +1,8 @@
+extends _layout.pug
+
+block variables
+  - var title = "Contact"
+  - var mail = "camilleb.et.simonb@gmail.com"
+
+block content
+    a(href="mailto:" + mail)= mail 
