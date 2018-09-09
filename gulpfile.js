@@ -4,19 +4,21 @@ var del = require('del');
 var gm = require('gulp-gm'); 
 var using = require('gulp-using');
 
+var dist_folder = "dist/appartement-puteaux"
+
 gulp.task('html', function buildHTML() {
   return gulp.src(['pages/*.pug', '!pages/_*.pug'])
   .pipe(pug())
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest(dist_folder));
 });
 
 gulp.task('css', function buildCss() {
   return gulp.src('./*.css')
-  .pipe(gulp.dest('dist'));
+  .pipe(gulp.dest(dist_folder));
 });
 
 gulp.task('clean', function clean() {
-  return del('dist');
+  return del(dist_folder);
 });
 
 function copyImages(size, folder) {
@@ -41,7 +43,7 @@ gulp.task(
 
 gulp.task('copy-images', function copyImages() {
   return gulp.src('images/**/*.jpg')
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(dist_folder));
 });
 
 gulp.task('build:full', ['html', 'css', 'copy-images']);
