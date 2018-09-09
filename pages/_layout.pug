@@ -20,8 +20,10 @@ html(lang='en')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.css')
     script.
       window.onload = function() {
+        var viewerElt = document.getElementById('viewer');
+        if (!viewerElt) { return; }
         var viewer = new Viewer(
-          document.getElementById('viewer'),
+          viewerElt,
           {
             url: 'data-original',
             title: [1, (image, imageData) => `${image.alt}`],

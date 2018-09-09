@@ -25,8 +25,8 @@ h3 {
     margin: 1.3em 0 0.3em 0;
 }
 
-p {
-
+article {
+    width: 100%;
 }
 
 header {
@@ -90,6 +90,11 @@ h2 {
 
 .viewer-large > img {
     margin: 3px;
+}
+
+.viewer-compact {
+    max-width: 530px;
+    margin: auto;
 }
 
 .viewer-compact > img {
