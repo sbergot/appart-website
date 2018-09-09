@@ -8,6 +8,6 @@ deploy:
   keep-history: true
   local-dir: dist
   repo: "sbergot.github.io"
-  target-branc: master
+  target-branch: master
   on:
     branch: master
