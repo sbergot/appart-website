@@ -20,18 +20,31 @@ gulp.task('clean', function clean() {
 });
 
 function copyImages(size, folder) {
-  return () => gulp.src('images/*')
+  return () => gulp.src('raw_images/*.jpg')
     .pipe(using({prefix: `Resizing file to ${size}`, filesize: true}))
     .pipe(gm(function (gmFile) {
       return gmFile.resize(size, size).autoOrient();
     }))
-    .pipe(gulp.dest(`dist/${folder}`));
+    .pipe(gulp.dest(`images/${folder}`));
 }
 
-gulp.task('images:big', copyImages(800, 'photos'));
-gulp.task('images:medium', copyImages(300, 'photos-medium'));
-gulp.task('images:thumbnails', copyImages(100, 'thumbnails'));
-gulp.task('images', ['images:big', 'images:medium', 'images:thumbnails']);
+gulp.task('resize-images:big', copyImages(800, 'photos'));
+gulp.task('resize-images:medium', copyImages(300, 'photos-medium'));
+gulp.task('resize-images:thumbnails', copyImages(100, 'thumbnails'));
+gulp.task(
+  'resize-images',
+  [
+    'resize-images:big',
+    'resize-images:medium',
+    'resize-images:thumbnails'
+  ]);
+
+gulp.task('copy-images', function copyImages() {
+  return gulp.src('images/**/*.jpg')
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('build:full', ['html', 'css', 'copy-images']);
 
 gulp.task('default', ['html', 'css']);
 
