@@ -53,6 +53,7 @@ exports.html = html;
 exports.css = css;
 exports.clean = clean;
 exports.resize_images = resize_images;
+exports.copy_images = copy_images;
 exports.build_full = build_full;
 exports.default = build;
 exports.watch = watch;

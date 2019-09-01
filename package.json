@@ -15,10 +15,10 @@
   },
   "scripts": {
     "build": "gulp",
-    "build:full": "gulp build:full",
+    "build:full": "gulp build_full",
     "watch": "gulp watch",
     "resize-images": "gulp resize_images",
-    "copy-images": "gulp copy-images",
+    "copy-images": "gulp copy_images",
     "clean": "gulp clean"
   }
 }
