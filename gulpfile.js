@@ -6,22 +6,22 @@ var using = require('gulp-using');
 
 var dist_folder = "dist/appartement-puteaux"
 
-gulp.task('html', function buildHTML() {
+function html() {
   return gulp.src(['pages/*.pug', '!pages/_*.pug'])
   .pipe(pug())
   .pipe(gulp.dest(dist_folder));
-});
+}
 
-gulp.task('css', function buildCss() {
+function css() {
   return gulp.src('./*.css')
   .pipe(gulp.dest(dist_folder));
-});
+}
 
-gulp.task('clean', function clean() {
+function clean() {
   return del(dist_folder);
-});
+}
 
-function copyImages(size, folder) {
+function resizeImages(size, folder) {
   return () => gulp.src('raw_images/*.jpg')
     .pipe(using({prefix: `Resizing file to ${size}`, filesize: true}))
     .pipe(gm(function (gmFile) {
@@ -30,27 +30,29 @@ function copyImages(size, folder) {
     .pipe(gulp.dest(`images/${folder}`));
 }
 
-gulp.task('resize-images:big', copyImages(800, 'photos'));
-gulp.task('resize-images:medium', copyImages(300, 'photos-medium'));
-gulp.task('resize-images:thumbnails', copyImages(100, 'thumbnails'));
-gulp.task(
-  'resize-images',
-  [
-    'resize-images:big',
-    'resize-images:medium',
-    'resize-images:thumbnails'
-  ]);
+var resize_images = gulp.parallel(
+  resizeImages(800, 'photos'),
+  resizeImages(300, 'photos-medium'),
+  resizeImages(100, 'thumbnails'));
 
-gulp.task('copy-images', function copyImages() {
+function copy_images() {
   return gulp.src('images/**/*.jpg')
     .pipe(gulp.dest(dist_folder));
-});
+}
 
-gulp.task('build:full', ['html', 'css', 'copy-images']);
+var build_full = gulp.series(html, css, copy_images);
 
-gulp.task('default', ['html', 'css']);
+var build = gulp.series(html, css);
 
-gulp.task('watch', ['html', 'css'], function watch() {
+function watch() {
   gulp.watch('./*.css', ['css']);
   gulp.watch(['pages/*.pug'], ['html']);
-});
+}
+
+exports.html = html;
+exports.css = css;
+exports.clean = clean;
+exports.resize_images = resize_images;
+exports.build_full = build_full;
+exports.default = build;
+exports.watch = watch;

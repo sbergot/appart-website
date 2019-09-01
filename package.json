@@ -17,7 +17,7 @@
     "build": "gulp",
     "build:full": "gulp build:full",
     "watch": "gulp watch",
-    "resize-images": "gulp resize-images",
+    "resize-images": "gulp resize_images",
     "copy-images": "gulp copy-images",
     "clean": "gulp clean"
   }
