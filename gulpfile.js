@@ -4,7 +4,7 @@ var del = require('del');
 var gm = require('gulp-gm'); 
 var using = require('gulp-using');
 
-var dist_folder = "dist/appartement-puteaux"
+var dist_folder = "dist"
 
 function html() {
   return gulp.src(['pages/*.pug', '!pages/_*.pug'])
