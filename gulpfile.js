@@ -22,7 +22,7 @@ function clean() {
 }
 
 function resizeImages(size, folder) {
-  return () => gulp.src('raw_images/*.jpg', { encoding: false })
+  return () => gulp.src('raw_images/*.jpg')
     .pipe(using({prefix: `Resizing file to ${size}`, filesize: true}))
     .pipe(gm(function (gmFile) {
       return gmFile.resize(size, size).autoOrient();
