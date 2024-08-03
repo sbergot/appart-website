@@ -36,7 +36,7 @@ var resize_images = gulp.parallel(
   resizeImages(100, 'thumbnails'));
 
 function copy_images() {
-  return gulp.src('images/**/*.jpg')
+  return gulp.src('images/**/*.jpg', { encoding: false })
     .pipe(gulp.dest(dist_folder));
 }
 
