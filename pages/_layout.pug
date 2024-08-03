@@ -10,11 +10,12 @@ mixin navlink(file, name)
 doctype html
 html(lang='en')
   head
+    include _locals
     block variables
     // https://rueil-malmaison-92500.site-pap.fr/accueil.html
     meta(charset='utf-8')
     meta(name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
-    meta(name="Description" content="Appartement T2 meublé à louer - 50m² - Puteaux (92800) - disponible à partir de février 2023")
+    meta(name="Description" content="Appartement T2 meublé à louer - 50m² - Puteaux (92800) - disponible à partir de #{date_disponibilite}")
     title= title
     link(rel='stylesheet', href='style.css')
     script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.js")
@@ -39,8 +40,7 @@ html(lang='en')
       +navlink('photos', 'Photos')
       +navlink('contact', 'Contact')
     main
-      h1 Appartement T2 meublé à louer - 50m² - Puteaux (92800) - disponible à partir de février 2023
+      h1 Appartement T2 meublé à louer - 50m² - Puteaux (92800) - disponible à partir de #{date_disponibilite}
       h2= title
-      //- span#price Loyer: 1400 €
       article
         block content
