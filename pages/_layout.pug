@@ -20,6 +20,9 @@ html(lang='en')
     link(rel='stylesheet', href='style.css')
     script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.js")
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.css')
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap" rel="stylesheet")
     script.
       window.onload = function() {
         var viewerElt = document.getElementById('viewer');
@@ -40,7 +43,7 @@ html(lang='en')
       +navlink('photos', 'Photos')
       +navlink('contact', 'Contact')
     main
-      h1 Appartement T2 meublé à louer - 50m² - Puteaux (92800) - disponible à partir de #{date_disponibilite}
-      h2= title
+      h1 Appartement T2 meublé à louer - 50m² - Puteaux (92800)
+      h2 disponible à partir de #{date_disponibilite}
       article
         block content

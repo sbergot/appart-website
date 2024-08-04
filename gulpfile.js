@@ -45,8 +45,8 @@ var build_full = gulp.series(html, css, copy_images);
 var build = gulp.series(html, css);
 
 function watch() {
-  gulp.watch('./*.css', ['css']);
-  gulp.watch(['pages/*.pug'], ['html']);
+  gulp.watch('./*.css', css);
+  gulp.watch(['pages/*.pug'], html);
 }
 
 exports.html = html;
