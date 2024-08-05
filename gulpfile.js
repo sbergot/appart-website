@@ -27,6 +27,7 @@ function resizeImages(size, folder) {
     .pipe(gm(function (gmFile) {
       return gmFile.resize(size, size);
     }))
+    .pipe(using({prefix: `Resizing file to ${size} - done`, filesize: true}))
     .pipe(gulp.dest(`images/${folder}`));
 }
 
