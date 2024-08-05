@@ -58,7 +58,7 @@ header {
     border-bottom: 3px solid var(--primary-light);
 
     > a {
-      margin-bottom: -2px;
+      margin-bottom: -3px;
       padding: 13px 10px;
       color: rgb(230, 230, 230);
       text-decoration: inherit;
@@ -76,7 +76,7 @@ header {
           color: var(--white);
           font-weight: bolder;
           background-color: var(--secondary-dark);
-          border-bottom: 3px solid var(--secondary-light);
+          border-bottom: 4px solid var(--secondary-light);
       }
     
     }
