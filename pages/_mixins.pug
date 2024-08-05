@@ -1,0 +1,8 @@
+mixin image(name)
+  img(src='thumbnails/' + name + '.jpg' data-original='photos/' + name + '.jpg' alt=name)
+
+mixin image-large(name)
+  img(src='photos-medium/' + name + '.jpg' data-original='photos/' + name + '.jpg' alt=name)
+
+mixin navlink(file, name)
+  a(href='./' + file + '.html' class= name === title ? 'current' : '')= name
