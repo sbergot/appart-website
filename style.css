@@ -1,7 +1,7 @@
 html {
   --white: #fafafa;
   --primary-dark: #96076b;
-  --primary-light: #cc55a8;
+  --primary-light: #ed7acb;
   --secondary-dark: #1c76a2;
   --secondary-light: #52baed;
   background-color: var(--white);
@@ -76,7 +76,7 @@ header {
       &:hover {
         padding: 13px 10px 10px 10px;
         color: var(--primary-light);
-        border-bottom: 3px solid var(--primary-light);
+        border-bottom: 4px solid var(--primary-light);
       }
       
       &.current {
