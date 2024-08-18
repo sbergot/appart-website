@@ -8,7 +8,7 @@ html(lang='en')
     // https://rueil-malmaison-92500.site-pap.fr/accueil.html
     meta(charset='utf-8')
     meta(name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
-    meta(name="Description" content="#{global_title} - #{date_disponibilite}")
+    meta(name="Description" content="#{global_title} - #{sub_title}")
     title= title
     link(rel='stylesheet', href='style.css')
     script(src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.2.0/viewer.min.js")
@@ -37,6 +37,6 @@ html(lang='en')
       +navlink('contact', 'Contact')
     main
       h1 #{global_title}
-      h2 #{date_disponibilite}
+      h2 #{sub_title}
       article
         block content
